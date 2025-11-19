@@ -1,0 +1,85 @@
+print("              WELCOME TO KON BANEGA CARORPATI                ")
+
+print("_______________________________________________________________\n")
+print("              RULES OF THE GAME ARE AS FOLLOWS                      ")
+print("\n1. GAME FORMAT \n > The game consist of 15 questions.\n > Each question has 4 options, only one of which is correct.\n > Questions increase in difficulty as the game progresses.")
+print("2. LIFELINES   \n > 50:50- remove two incorrect options.\n > phone a Friend- gives a hint.\n > Audience poll: audience vote for your answer.\n > Flip the Question:the question will we replaced. ")
+print("3. Winning Criteria \n > Answer all 15 questions correctly to win the top prize.\n > The prize money increases with each correct answer.\n\n")
+print("\n\nThe amount increases as follow :")
+from tabulate import tabulate 
+amountperquestion=[
+["Q1", "₹1,000"],
+["Q2", "₹2,000"],
+["Q3", "₹3,000"],
+["Q4", "₹5,000"],
+["Q5 (Safe Level)", "₹10,000"],
+["Q6", "₹20,000"],
+["Q7", "₹40,000"],
+["Q8", "₹80,000"],
+["Q9", "₹1,60,000"],
+["Q10 (Safe Level)", "₹3,20,000"],
+["Q11", "₹6,40,000"],
+["Q12", "₹12,50,000"],
+["Q13", "₹25,00,000"],
+["Q14", "₹50,00,000"],
+["Q15", "₹1,00,00,000"]
+]
+print(tabulate(amountperquestion, headers=["Question Number", "Prize Amount (INR)"], tablefmt="grid"))
+questions= [
+  ["Who is known as the Missile Man of India?","Homi bhabha","Vikram sarabhai","A.P.J Abdul kalam","C.V Raman",3],
+
+  ["What is the capital of Australia?","Sydney","Melbourne","Canberra","Perth",3],
+  
+  ["Which planet is known as the Red Planet?","Venus","Mars","Jupiter","Mercury",2],
+  
+  ["What is the chemical symbol for gold??","Ag","Au","Ca","Hg",2],
+  
+  ["Who wrote the national anthem of India?","Bankim Chandra Chatterjee","Rabindranath Tagore","Sarojini Naidu","Subhash Chandra Bose",2],
+  
+  ["Which river is the longest in the world?","Nile","Amazon","Mississippi","Yangtze",1],
+  
+  ["Who invented the telephone?","Thomas Edisony","Alexander Graham Bell","Nikola Tesla","James Watth",2],
+  
+  ["What is the smallest bone in the human body?"," Femury","Ulna","Stapes","Tibia",3],
+
+  ["Which Indian state is known as the Spice Garden of India?","Tamil Nadu","Kerala","Karnataka","Assam",2],
+  
+  ["Who was the first woman Prime Minister of India?","Pratibha Patily","Indira Gandhie","Sarojini Naidua","Sushma Swarajh",2],
+  
+  ["What is the currency of Japan?","Won","Yen","Yuan","Ringgith",2],
+  
+  ["Which gas is most abundant in the Earth's atmosphere?","Oxygen","Carbon Dioxid","Nitrogen","Hydrogen",3],
+  
+  ["Who discovered gravity?","Galileo Galilei","Albert Einstein","Johannes Kepler","Isaac Newton",4],
+  
+  ["Which organ purifies blood in the human body?","Kidney"," Livere","Heart","Lungs",1],
+  
+  ["What is the national sport of India?","Cricket","Football","Kabaddi","Hockey",4],
+  
+]
+levels = [1000, 2000, 3000, 5000, 10000, 20000, 40000, 80000, 160000, 320000, 640000, 1250000, 2500000, 5000000, 10000000]
+money = 0
+for i in range(0, len(questions)):
+  
+  question = questions[i]
+  print(f"\n\nQuestion for Rs. {levels[i]}")
+  print(question[0])
+  print(f"a. {question[1]}          b. {question[2]} ")
+  print(f"c. {question[3]}          d. {question[4]} ")
+  reply = int(input("Enter your answer (1-4) or  0 to quit:\n" ))
+  if (reply == 0):
+    money = levels[i-1]
+    break
+  if(reply == question[-1]):
+    print(f"Correct answer, you have won Rs. {levels[i]}")
+    if(i == 4):
+      money = 10000
+    elif(i == 9):
+      money = 320000
+    elif(i == 14):
+      money = 10000000
+  else:
+    print("Wrong answer!")
+    break 
+
+print(f"CONGRATULATION!!!!!!!!!!\n Your take home money is {money}")
